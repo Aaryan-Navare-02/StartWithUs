@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "LoginChoice";
+    //Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<html>
+<head>
+    <title>Login Choice</title>
+    
+    <link href="~/css/Choice.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="~/Home/BusinessLogin">
+                <h1>Enterpreneur Login</h1><br />
+                @*<div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>*@
+                @*<span>or use your email for registration</span>
+                <input type="text" placeholder="Name" />
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />*@
+                <button onclick="~/Home/BusinesSignUp">Sign Up</button><br />
+                <button onclick="~/Home/BusinessLogin">Login</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="~/Home/InvestorLogin">
+                <h1>Investor Login</h1><br />
+                @*<div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>*@
+                @*<span>or use your account</span>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <a href="#">Forgot your password?</a>*@
+                <button onclick="~/Home/InvestorSignUp">Sign Up</button>
+                <br />
+                <button onclick="~/Home/InvestorLogin">Login</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Warm Welcome!</h1>
+                    <p>Want to Invest in a Company ?</p>
+                    <button class="ghost" id="signIn">Investor</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Want to register your Company ?</p>
+                    <button class="ghost" id="signUp">Enterpreneur</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/JavaScript.js"></script>
+</body>
+</html>

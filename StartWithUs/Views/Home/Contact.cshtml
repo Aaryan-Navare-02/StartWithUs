@@ -1,0 +1,246 @@
+﻿@model StartWithUs.Models.FeedbackModel 
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Captivate a Corporate Category Bootstrap Responsive Website Template | Contact :: W3layouts</title>
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap" rel="stylesheet">
+
+<!-- Template CSS -->
+<link rel="stylesheet" href="~/css/style-starter.css">
+
+<!-- contact page breadcrumns -->
+<section class="inner-banner">
+</section>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-padding">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Contact</li>
+    </ol>
+</nav>
+<!-- contact page breadcrumns -->
+<!-- contact section -->
+<section class="w3l-contact3">
+    <div class="contact1-bg section-gap">
+        <div class="container">
+            <div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12 px-lg-3 px-0">
+                <h4 class="section-title">Get in touch with us</h4>
+                <p class="text-center">
+                    Feel free to contact us if you have any queries.
+                </p>
+            </div>
+            <div class="row contact-main mt-5">
+                <div class="col-md-6 ">
+                    <div class="column">
+                        <h3 class="header">We are here for you</h3>
+                        <p class="head-main">
+                            For more information or inquiry about our website
+                            please feel free to
+                            get in touch with us.
+                        </p>
+                    </div>
+                    <div class="column2">
+                        <div class="contact-para contact-info-align">
+                            <div class="icon">
+                                <span class="fa fa-map-marker"></span>
+                            </div>
+                            <div>
+                                <strong class="info">Address:</strong> #135 block, Outdoor,
+                                96 Wythe Ave, Brooklyn, NY 11249, United States.
+                            </div>
+                        </div>
+                        <div class="contact-info-align">
+                            <div class="icon">
+                                <span class="fa fa-phone"></span>
+                            </div>
+                            <div>
+                                <strong class="info">Phone:</strong> <a href="tel:+91 8454945709">
+                                    +91 8454
+                                    945 709
+                                </a> ,
+                                <a href="tel:+91 7738216161"> +91 7738 216 161</a>
+                            </div>
+                        </div>
+                        <div class="contact-info-align">
+                            <div class="icon">
+                                <span class="fa fa-envelope-open-o"> </span>
+                            </div>
+                            <div>
+                                <strong class="info">Email:</strong>
+                                <a href="mailto: aaryannavare60.model@gmail.com">
+                                    aaryannavare60.model@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column3">
+                        <h3 class="header follow">Follow us </h3>
+                        <a href="https://www.facebook.com/people/Start-with-us/100088494999733/" class="facebook" title="facebook"><span class="fa fa-facebook"></span></a>
+                        @*<a href="#twitter" class="twitter" title="twitter"><span class="fa fa-twitter"></span></a>*@
+                        <a href="#https://www.linkedin.com/in/aaryan-navare-881814258/" class="linkedin" title="linkedin"><span class="fa fa-linkedin"></span></a>
+                        <a href="https://www.instagram.com/startwithus4851/" class="instagram" title="instagram">
+                            <span class="fa fa-instagram"></span>
+                        </a>
+                    </div>
+                </div>
+                <!-- map iframe-->
+                <div class="col-md-6 map mt-lg-0 mt-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2895687731!2d-74.26055986835598!3d40.697668402590374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1562582305883!5m2!1sen!2sin"
+                            frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                </div>
+                <!-- //map iframe -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-form">
+    <div class="container">
+        <div class="contacts12-main">
+            <div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12 mb-md-5 mb-3">
+                <h4 class="section-title">we want to here from you</h4>
+                <p class="text-center">
+                    We appreciate your valuable feedback
+                </p>
+            </div>
+            <!-- contact form -->
+            @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+            {
+                if (ViewBag.Status != null)
+                {
+                    if (ViewBag.Status == 1)
+                    {
+                        <span class="alert alert-success">Feedback Submitted</span>
+                        <br /><br />
+                    }
+                    else if (ViewBag.Status == 0)
+                    {
+                        <span class="alert alert-danger">Unsuccessfull sending</span>
+                    }
+                }
+                    @*<form action="mailto: aaryannavare60.model@gmail.com" method="post">*@
+                    <div class="main-input">
+                        <div>
+                            @Html.TextBoxFor(m => m.name, new
+                            {
+                                @type = "text",
+                                @name = "name",
+                                @id = "name",
+                                @placeholder = "Your Name",
+                                @class = "contact-input"
+                            })
+                            @*<input type="text" name="name" id="name" placeholder="Your Name" class="contact-input"
+                        required />*@
+                        </div>
+                        <div>
+                            @Html.TextBoxFor(m => m.email, new
+                            {
+                                @type = "email",
+                                @name = "email",
+                                @id = "email",
+                                @placeholder = "Your Email ID",
+                                @class = "contact-input"
+                            })
+                            @*<input type="email" name="email" id="email" placeholder="Your Email id"
+                        class="contact-input" required />*@
+                        </div>
+                        <div>
+                            @Html.TextAreaFor(m => m.subject, new
+                            {
+                                @type = "text",
+                                @name = "subject",
+                                @id = "subject",
+                                @placeholder = "Subject",
+                                @class = "contact-input"
+                            })
+                            @*<input type="text" name="subject" id="subject" placeholder="Subject" class="contact-input"
+                        required />*@
+                        </div>
+                    </div>
+                    @Html.TextAreaFor(m => m.message, new
+                    {
+                        @type = "text",
+                        @name = "message",
+                        @id = "message",
+                        @placeholder = "Type your message here",
+                        @class = "contact-input"
+                            })
+                    @*<textarea class="contact-textarea" name="message" id="message"
+                placeholder="Type your message here" required></textarea>*@
+                    <div class="text-right">
+                        <button class="btn btn-style btn-primary" onclick="~/Home/Index">Submit</button>
+                    </div>
+             }
+                @*</form>*@
+                <!-- //contact form -->
+        </div>
+    </div>
+</section>
+<!-- //contact section -->
+<!-- move top -->
+<button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+    <span class="fa fa-angle-up"></span>
+</button>
+
+<script>// When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction()
+  };
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("movetop").style.display = "block";
+    } else {
+      document.getElementById("movetop").style.display = "none";
+    }
+  }
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }</script>
+<!-- //move top -->
+<!-- javascript -->
+<script src="~/js/jquery-3.3.1.min.js"></script>
+
+<!-- libhtbox -->
+<script src="~/js/lightbox-plus-jquery.min.js"></script>
+
+<!-- particles -->
+<script src='~/js/particles.min.js'></script>
+<script src="~/js/script.js"></script>
+<!-- //particles -->
+<!-- owl carousel -->
+<script src="~/js/owl.carousel.js"></script>
+<script>$(document).ready(function () {
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+      margin: 10,
+      nav: true,
+      loop: false,
+      responsive: {
+        0: {
+          items: 1
+        },
+        767: {
+          items: 2
+        },
+        1000: {
+          items: 3
+        }
+      }
+    })
+  })</script>
+
+<!-- disable body scroll which navbar is in active -->
+<script>$(function () {
+    $('.navbar-toggler').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });</script>
+<!-- disable body scroll which navbar is in active -->
+<!-- bootstrap -->
+<script src="~/js/bootstrap.min.js"></script>

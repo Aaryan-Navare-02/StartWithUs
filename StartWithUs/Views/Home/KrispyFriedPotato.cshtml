@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "KrispyFriedPotato";
+    //Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Krispy Fried Potato</title>
+    <link href="~/css/StyleSheet1.css" rel="stylesheet" />
+    @* <link href="~/css/style-starter11.css" rel="stylesheet" />*@
+    <link rel="shortcut icon" href="http://faviconist.com/icons/d4030b0a9eb3cda58232fa83b92c405c/favicon.ico" />
+
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">*@
+</head>
+<body>
+    <div class="img-container1">
+        <h1>Krispy Fried Potato</h1>
+        <h2>Come and join us</h2>
+        <a class="btn" href="~/Home/Contact">Request for a meet</a>
+        @*<a href="#small-dialog" class="popup-with-zoom-anim play-view">
+                <span class="video-play-icon">
+                    <span class="fa fa-play"></span>
+                </span>
+            </a>*@
+        <!-- dialog itself, mfp-hide class is required to make dialog hidden -->
+        <!--<div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+            <iframe src="https://player.vimeo.com/video/164890650"
+                    allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+        </div>-->
+    </div>
+    <section class="w3l-about">
+        <div class="container">
+            <div class="row about-content">
+                <div class="col-lg-6 info mb-lg-0 mb-sm-5 mb-4 align-center">
+                    <h3 class="title">About Us</h3>
+                    <h6>
+                        KFP is an American fast food restaurant chain headquartered in Louisville, Kentucky, that specializes in fried potato. It is the world's third-largest restaurant chain after McDonald's, with 22,621 locations globally in 150 countries as of December 2019.
+                    </h6>
+                    <p class="mt-md-4 mt-3 mb-0">
+                        KFP was founded by Colonel Tarland Handers (1890–1980), an entrepreneur who began selling fried potato from his roadside restaurant in Corbin, Kentucky, during the Great Depression.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="~/images/kfplogo.jpg" class="img-fluid img-shadow" alt="about">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="top">
+        <div class="col-lg-7">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12">
+                    <h3 class="section-title">Our Company's Statistics</h3>
+                    <br />
+                </div>
+            </div>
+            <img src="~/images/SysfonicsGraph.png" class="img-fluid img-shadow" alt="about">
+        </div>
+        @if (Session["ID"] != null || Session["BID"] != null)
+        {
+            <a class="btn1" href="~/Home/InvestNow">Invest Now</a>
+        }
+        else
+        {
+            <a class="btn1" href="~/Home/InvestorLogin">Invest Now</a>
+        }
+    </section>
+
+    <section class="video">
+        <div class="video-play-icon margin">
+            <iframe width="560"
+                    height="315"
+                    src="~/Models/Video/Testimony.mp4"
+                    frameborder="0"
+                    allowtransparency="true"></iframe>
+        </div>
+    </section>
+</body>
+</html>
+
+
+
+

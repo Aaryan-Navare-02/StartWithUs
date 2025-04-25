@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>layout</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <script src="~/js/._main.js"></script>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="~/css/style-starter.css" rel="stylesheet" />
+    @*responsive*@
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- awesome fontfamily -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    @*<a href="~/fonts/fontawesome-webfont.eot"></a>
+        <a href="~/fonts/fontawesome-webfont.ttf"></a>
+        <a href="~/fonts/fontawesome-webfont.woff"></a>
+        <a href="~/fonts/fontawesome-webfont.woff2"></a>
+        <a href="~/fonts/FontAwesome.otf"></a>*@
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/lightbox-plus-jquery.min.js"></script>
+    <script src="~/js/owl.carousel.js"></script>
+    <script src="~/js/particles.min.js"></script>
+    <script src="~/js/script.js"></script>
+
+    <script src="~/js/._main.js"></script>
+    <script src="~/js/bootstrap.bundle.js"></script>
+    <script src="~/js/script.js"></script>
+    @* <a href="~/js/bootstrap.bundle.js.map"></a>*@
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    @* <a href="~/js/bootstrap.bundle.min.js.map"></a>*@
+    <script src="~/js/particles.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    @*<a href="~/js/bootstrap.js.map"></a>*@
+    <script src="~/js/lightbox-plus-jquery.min.js"></script>
+    <script src="~/js/owl.carousel.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/jquery-3.0.0.min.js"></script>
+    @*<script src="~/js/jquery.mCustomScrollbar.concat.min.js"></script>*@
+    @* <a href="~/js/bootstrap.min.js.map"></a>*@
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+</head>
+
+<body>
+
+    <header id="site-header" class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="~/Home/Index">
+                <span class="fa fa-bar-chart"></span> Start With Us
+            </a>
+            <button class="navbar-toggler bg-gradient" type="button" data-toggle="collapse"
+                    data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            @*<section class="navigation">*@
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav m-auto">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Services", "Services", "Home", new { @class = "nav-link" })</li>
+                    @*<li>@Html.ActionLink("TNC", "TNC", "Home", new { @class = "nav-link" })</li>*@
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Login", "LoginChoice", "Home", new { @class = "nav-link" })</li>
+                    <li>
+                        @if (Session["BID"] == null)
+                        {
+                        <li>@Html.ActionLink("Log Company", "BusinessLogin", "Home", new { @class = "nav-link" })</li>
+                    }
+                        @if (Session["BID"] != null)
+                        {
+                            <li>@Html.ActionLink("Log Company", "CompanyDetails", "Home", new { @class = "nav-link" })</li>
+                        }
+                        </li>
+                    </ul>
+                    @if (Session["ID"] != null || Session["BID"] != null)
+                    {
+                        <div class="right">
+                            @* <button onclick="~/Home/MyAccount" class="btn right" style="border:1px solid white;padding:11px 60px 11px 35px;margin:-6px 12px 11px 23px">*@
+
+                            <a href="~/Home/MyAccount" target="_blank" style="border: 1px solid white; padding: 11px 60px 11px 35px; margin: 13px 81px 11px -16px; text-decoration:none;border-radius:10px ">
+                                <i class="fa fa-user" aria-hidden="true" style="color:white; padding-left:0 10px 0 10px">
+                                    @Session["Name"]
+                                </i>
+                            </a>
+                            @*</button>*@
+                        </div>
+                    }
+                    <div class="col-sm-4">
+                        <ul style="padding-left:10px">
+                            <li>
+                                <button class="openbtn" onclick="openNav()"><img src="~/images/icons8-menu-vertical-30.png"></button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="mySidepanel" class="sidepanel">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                        <ul>
+
+                            <li>
+                                @if (Session["ID"] != null || Session["BID"] != null)
+                                {
+                                    @Html.ActionLink("My Account", "MyAccount", "Home", new { @class = "nav-link" })
+                                }
+                            </li>
+
+                            <li>
+                                @if (Session["ID"] == null || Session["BID"] == null)
+                                {
+                                    @Html.ActionLink("Investor Login", "InvestorLogin", "Home", new { @class = "nav-link" })
+                                }
+                            </li>
+
+                            <li>
+                                @if (Session["BID"] == null || Session["ID"] == null)
+                                {
+                                    @Html.ActionLink("Business Login", "BusinessLogin", "Home", new { @class = "nav-link" })
+                                }
+                            </li>
+
+                            <li> @Html.ActionLink("Explore Companies", "ExploreCompanies", "Home", new { @class = "nav-link" }) </li>
+
+                            <li>
+                                @if (Session["ID"] != null || Session["BID"] != null)
+                                {
+                                    @Html.ActionLink("Logout", "Logout", "Home", new { @class = "nav-link" })
+                                }
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    @*<a href="index.html">Home</a>*@
+                    @*<a class="active" href="about.html">My Account</a>
+                        <a href="searvices.html">Business Login</a>
+                        <a href="@Html.ActionLink("Investor Login", "InvestorLogin", "Home", new { @class = "nav-link" })"></a>
+                        <a href="works.html">Explore Companies</a>*@
+                    @*<a href="contact.html">Contact</a>*@
+
+
+                </div>
+                @*</section>*@
+            </nav>
+        </header>
+        <!-- //site header -->
+
+
+        <div>
+            @RenderBody()
+        </div>
+
+

@@ -1,0 +1,457 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<link href="~/css/responsive.css" rel="stylesheet" />
+
+<link href="~/css/style-starter.css" rel="stylesheet" />
+
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<!-- banner section -->
+<section id="home" class="banner">
+    <div id="banner-bg-effect" class="banner-effect"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-md-12 col-sm-12 order-lg-first mt-lg-0 mt-4">
+                <h1 class="mb-4 title">
+                    <strong>Doing </strong>the right thing, <br>at the <strong>right time.</strong>
+                </h1>
+
+                @*<div class="mt-5">
+                        <a class="btn btn-primary btn-style mr-2" href="About.html">Read More </a>
+                        <a class="btn btn-outline btn-outline-style" href="Services.html">Our Services </a>
+                    </div>*@
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12 order-first text-lg-left text-center">
+                <div>
+                    <img src="~/images/SWU_Logo.png" alt="" class="rounded-circle img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //banner section -->
+<!-- home page about -->
+<section class="w3l-about">
+    <div class="container">
+        <div class="row about-content">
+            <div class="col-lg-6 info mb-lg-0 mb-sm-5 mb-4 align-center">
+                <h3 class="title">About Us</h3>
+                <h6>
+                    Business planning, Strategy and Execution. A problem-solving philosophy that leads to
+                    products people actually want to use.
+                </h6>
+                <p class="mt-md-4 mt-3 mb-0">
+                    Start With Us allows you to invest in the new emerging startups & also to list your own business.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <img src="~/images/Screenshot (43).png" class="img-fluid img-shadow" alt="about">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //home page about -->
+<!-- home page service grids -->
+<hr />
+<section id="blog">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12">
+                <h4 class="section-title">Companies you can invest in </h4>
+                <p class="text-center">
+                    Start you Investment journey with us
+                </p>
+            </div>
+        </div>
+        <div class="blog-grids row mt-5">
+            <div class="col-lg-4 col-md-6 col-sm-12 blog-grid" id="zoomIn">
+                <a href="#blog-single.html">
+                    <figure><img src="~/images/los-pollos-hermanos-.jpg" class="img-fluid" alt=""></figure>
+                </a>
+                <div class="blog-info">
+                    <h3><a href="~/Home/LosPollosHermosa">Los Pollos Hermanos</a> </h3>
+                    <ul>
+                        <a href="~/Home/LosPollosHermosa" class="btn btn-primary btn-style mt-4">Invest Now</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 mt-md-0 mt-4 blog-grid" id="zoomIn">
+                <a href="#blog-single.html">
+                    <figure><img src="~/images/kfp.png" class="img-fluid" alt=""></figure>
+                </a>
+                <div class="blog-info">
+                    <h3><a href="~/Home/KrispyFriedPotato">Krispy Fried Potato</a> </h3>
+                    <ul>
+                        <a href="~/Home/KrispyFriedPotato" class="btn btn-primary btn-style mt-4">Invest Now</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-4 blog-grid" id="zoomIn">
+                <a href="#blog-single.html">
+                    <figure><img src="~/images/BlueMath.jpg" class="img-fluid" alt=""></figure>
+                </a>
+                <div class="blog-info">
+                    <h3><a href="~/Home/BlueMath">Blue Math</a> </h3>
+                    <ul>
+                        <a href="~/Home/BlueMath" class="btn btn-primary btn-style mt-4">Invest Now</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*<a href="contact.html" class="btn btn-primary btn-style1 mt-8">Invest Now</a>*@
+@*<div class="row mt-lg-5">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="box-wrap">
+                <div class="icon">
+                    <span class="fa fa-briefcase"></span>
+                </div>
+                <h4><a href="#url">L&T</a></h4>
+                <p>
+                    Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
+                    doloret quas saepe autem, dolor set.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="box-wrap">
+                <div class="icon">
+                    <span class="fa fa-shield"></span>
+                </div>
+                <h4><a href="#url">Product Consulting</a></h4>
+                <p>
+                    Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
+                    doloret quas saepe autem, dolor set.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="box-wrap">
+                <div class="icon">
+                    <span class="fa fa-dollar"></span>
+                </div>
+                <h4><a href="#url">Financial Consulting</a></h4>
+                <p>
+                    Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
+                    doloret quas saepe autem, dolor set.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="box-wrap">
+                <div class="icon">
+                    <span class="fa fa-industry"></span>
+                </div>
+                <h4><a href="#url">Investment Planning</a></h4>
+                <p>
+                    Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
+                    doloret quas saepe autem, dolor set.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="box-wrap">
+                <div class="icon">
+                    <span class="fa fa-lightbulb-o"></span>
+                </div>
+                <h4><a href="#url">Business Growth</a></h4>
+                <p>
+                    Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
+                    doloret quas saepe autem, dolor set.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="box-wrap">
+                <div class="icon">
+                    <span class="fa fa-picture-o"></span>
+                </div>
+                <h4><a href="#url">Projects Worldwide</a></h4>
+                <p>
+                    Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
+                    doloret quas saepe autem, dolor set.
+                </p>
+            </div>
+        </div>
+    </div>*@
+
+<!-- //home page service grids -->
+<!-- testimonials section -->
+<hr />
+<section id="slider" class="testimonials">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12">
+                <h4 class="section-title">What they said about us</h4>
+                <p class="text-center">
+                    Look how people are appreciating our start up
+                </p>
+            </div>
+        </div>
+        <div class="large-12 columns mt-5">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="w3l-customers-7">
+                        <div class="customers_sur">
+                            <div class="customers-left_sur">
+                                <div class="customers_grid">
+                                    <div class="custo-img-res">
+                                        <img src="~/images/jon.jpg" alt=" " class="rounded-circle img-fluid">
+                                    </div>
+                                    <div class="ratings my-4 my-4">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <p>
+                                        I have invested in two companies and earned great revenue.
+                                        Thanks to Start With Us.
+                                    </p>
+                                    <div class="customers-bottom_sur">
+                                        <div class="custo_grid">
+                                            <h5>Jon Snow</h5>
+                                            <span>Business Manager</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="w3l-customers-7">
+                        <div class="customers_sur">
+                            <div class="customers-left_sur">
+                                <div class="customers_grid">
+                                    <div class="custo-img-res">
+                                        <img src="~/images/daemon1.jpg" alt=" " class="rounded-circle img-fluid">
+                                    </div>
+                                    <div class="ratings my-4">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <p>
+                                        I invested in Pizza Best and saw a good growth in my Investment Journey
+                                    </p>
+                                    <div class="customers-bottom_sur">
+                                        <div class="custo_grid">
+                                            <h5>Daemon Targeryn</h5>
+                                            <span>General Manager</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="w3l-customers-7">
+                        <div class="customers_sur">
+                            <div class="customers-left_sur">
+                                <div class="customers_grid">
+                                    <div class="custo-img-res">
+                                        <img src="~/images/night.jpg" alt=" " class="rounded-circle img-fluid">
+                                    </div>
+                                    <div class="ratings my-4">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <p>
+                                        There are a lot of good companies to invest in here, please do add more big companies.
+                                    </p>
+                                    <div class="customers-bottom_sur">
+                                        <div class="custo_grid">
+                                            <h5>Night King</h5>
+                                            <span>Ceo of Walkers</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="w3l-customers-7">
+                        <div class="customers_sur">
+                            <div class="customers-left_sur">
+                                <div class="customers_grid">
+                                    <div class="custo-img-res">
+                                        <img src="~/images/ty.jpg" alt=" " class="rounded-circle img-fluid">
+                                    </div>
+                                    <div class="ratings my-4">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <p>
+                                        Good support provided by Start With Us team.
+                                    </p>
+                                    <div class="customers-bottom_sur">
+                                        <div class="custo_grid">
+                                            <h5>Tryrion Lannister</h5>
+                                            <span>Software Developer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="w3l-customers-7">
+                        <div class="customers_sur">
+                            <div class="customers-left_sur">
+                                <div class="customers_grid">
+                                    <div class="custo-img-res">
+                                        <img src="~/images/pink1.jpg" alt=" " class="rounded-circle img-fluid">
+                                    </div>
+                                    <div class="ratings my-4">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <p>
+                                        The investing process is quite easy with no hassel
+                                    </p>
+                                    <div class="customers-bottom_sur">
+                                        <div class="custo_grid">
+                                            <h5>Jessie Pinkman</h5>
+                                            <span>CEO of Joint</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--//testimonials section -->
+<!-- stats section -->
+<section id="stats" class="stats">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 margin-md-60">
+                <h2 class="left-title">Some of Our Company Real Facts.</h2>
+
+            </div>
+            <div class="col-lg-7 mt-lg-0 mt-5">
+                <div class="d-sm-flex justify-content-lg-around justify-content-between counter-main">
+                    <div class="counter">
+                        <div class="icon">
+                            <span class="fa fa-folder-open-o"></span>
+                        </div>
+                        <p class="value">100</p>
+                        <p class="title white">Companies</p>
+                    </div>
+                    <div class="counter">
+                        <div class="icon">
+                            <span class="fa fa-headphones"></span>
+                        </div>
+                        <p class="value">500+</p>
+                        <p class="title white">Investors</p>
+                    </div>
+                    <div class="counter">
+                        <div class="icon">
+                            <span class="fa fa-trophy"></span>
+                        </div>
+                        <p class="value">15</p>
+                        <p class="title white">Awards</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //stats section -->
+<!-- homepage blog grids -->
+<!-- //homepage blog grids -->
+<!-- move top -->
+<button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+    <span class="fa fa-angle-up"></span>
+</button>
+
+<script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction()
+    };
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<!-- //move top -->
+<!-- javascript -->
+<script src="~/js/jquery-3.3.1.min.js"></script>
+
+<!-- libhtbox -->
+<script src="~/js/lightbox-plus-jquery.min.js"></script>
+
+<!-- particles -->
+<script src='~/js/particles.min.js'></script>
+<script src="~/js/script.js"></script>
+<!-- //particles -->
+<!-- owl carousel -->
+<script src="~/js/owl.carousel.js"></script>
+<script>
+    $(document).ready(function () {
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            margin: 10,
+            nav: true,
+            loop: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                767: {
+                    items: 2
+                },
+                1000: {
+                    items: 3
+                }
+            }
+        })
+    })
+</script>
+
+<!-- disable body scroll which navbar is in active -->
+@*<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });*@
+</script>
+<!-- disable body scroll which navbar is in active -->
+<!-- bootstrap -->
+<script src="~/js/bootstrap.min.js"></script>
+

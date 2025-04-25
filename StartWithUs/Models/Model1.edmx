@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StartWithUsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Company_ID" />
+          </Key>
+          <Property Name="Company_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Company_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Company_Video" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Company_Graph" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Enterprenueur_ID" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Enterpreneur">
+          <Key>
+            <PropertyRef Name="Enterpreneur_id" />
+          </Key>
+          <Property Name="Enterpreneur_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Investor">
+          <Key>
+            <PropertyRef Name="Investor_ID" />
+          </Key>
+          <Property Name="Investor_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Payment_ID" />
+          </Key>
+          <Property Name="Payment_ID" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Investor_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Amount" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="Report_ID" />
+          </Key>
+          <Property Name="Report_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Company_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Enterpreneur_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Investor_ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Payment_ID" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Company_Enterpreneur">
+          <End Role="Enterpreneur" Type="Self.Enterpreneur" Multiplicity="1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Enterpreneur">
+              <PropertyRef Name="Enterpreneur_id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="Enterprenueur_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enterpreneur_Enterpreneur">
+          <End Role="Enterpreneur" Type="Self.Enterpreneur" Multiplicity="1" />
+          <End Role="Enterpreneur1" Type="Self.Enterpreneur" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Enterpreneur">
+              <PropertyRef Name="Enterpreneur_id" />
+            </Principal>
+            <Dependent Role="Enterpreneur1">
+              <PropertyRef Name="Enterpreneur_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Payment">
+          <End Role="Investor" Type="Self.Investor" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investor">
+              <PropertyRef Name="Investor_ID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Investor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Report_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Company_ID" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="Company_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Report_Enterpreneur">
+          <End Role="Enterpreneur" Type="Self.Enterpreneur" Multiplicity="1" />
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Enterpreneur">
+              <PropertyRef Name="Enterpreneur_id" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="Enterpreneur_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Report_Investor">
+          <End Role="Investor" Type="Self.Investor" Multiplicity="1" />
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investor">
+              <PropertyRef Name="Investor_ID" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="Investor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Report_Payment">
+          <End Role="Payment" Type="Self.Payment" Multiplicity="1" />
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment">
+              <PropertyRef Name="Payment_ID" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="Payment_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StartWithUsModelStoreContainer">
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enterpreneur" EntityType="Self.Enterpreneur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Investor" EntityType="Self.Investor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Company_Enterpreneur" Association="Self.FK_Company_Enterpreneur">
+            <End Role="Enterpreneur" EntitySet="Enterpreneur" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enterpreneur_Enterpreneur" Association="Self.FK_Enterpreneur_Enterpreneur">
+            <End Role="Enterpreneur" EntitySet="Enterpreneur" />
+            <End Role="Enterpreneur1" EntitySet="Enterpreneur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Payment" Association="Self.FK_Payment_Payment">
+            <End Role="Investor" EntitySet="Investor" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Report_Company" Association="Self.FK_Report_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Report" EntitySet="Report" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Report_Enterpreneur" Association="Self.FK_Report_Enterpreneur">
+            <End Role="Enterpreneur" EntitySet="Enterpreneur" />
+            <End Role="Report" EntitySet="Report" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Report_Investor" Association="Self.FK_Report_Investor">
+            <End Role="Investor" EntitySet="Investor" />
+            <End Role="Report" EntitySet="Report" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Report_Payment" Association="Self.FK_Report_Payment">
+            <End Role="Payment" EntitySet="Payment" />
+            <End Role="Report" EntitySet="Report" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StartWithUsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Company_ID" />
+          </Key>
+          <Property Name="Company_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Company_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Company_Video" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Company_Graph" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Enterprenueur_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Enterpreneur" Relationship="Self.FK_Company_Enterpreneur" FromRole="Company" ToRole="Enterpreneur" />
+          <NavigationProperty Name="Reports" Relationship="Self.FK_Report_Company" FromRole="Company" ToRole="Report" />
+        </EntityType>
+        <EntityType Name="Enterpreneur">
+          <Key>
+            <PropertyRef Name="Enterpreneur_id" />
+          </Key>
+          <Property Name="Enterpreneur_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Companies" Relationship="Self.FK_Company_Enterpreneur" FromRole="Enterpreneur" ToRole="Company" />
+          <NavigationProperty Name="Enterpreneur1" Relationship="Self.FK_Enterpreneur_Enterpreneur" FromRole="Enterpreneur" ToRole="Enterpreneur1" />
+          <NavigationProperty Name="Enterpreneur2" Relationship="Self.FK_Enterpreneur_Enterpreneur" FromRole="Enterpreneur1" ToRole="Enterpreneur" />
+          <NavigationProperty Name="Reports" Relationship="Self.FK_Report_Enterpreneur" FromRole="Enterpreneur" ToRole="Report" />
+        </EntityType>
+        <EntityType Name="Investor">
+          <Key>
+            <PropertyRef Name="Investor_ID" />
+          </Key>
+          <Property Name="Investor_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MobileNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_Payment_Payment" FromRole="Investor" ToRole="Payment" />
+          <NavigationProperty Name="Reports" Relationship="Self.FK_Report_Investor" FromRole="Investor" ToRole="Report" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Payment_ID" />
+          </Key>
+          <Property Name="Payment_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Investor_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Amount" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Investor" Relationship="Self.FK_Payment_Payment" FromRole="Payment" ToRole="Investor" />
+          <NavigationProperty Name="Reports" Relationship="Self.FK_Report_Payment" FromRole="Payment" ToRole="Report" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="Report_ID" />
+          </Key>
+          <Property Name="Report_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Company_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Enterpreneur_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Investor_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Payment_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Report_Company" FromRole="Report" ToRole="Company" />
+          <NavigationProperty Name="Enterpreneur" Relationship="Self.FK_Report_Enterpreneur" FromRole="Report" ToRole="Enterpreneur" />
+          <NavigationProperty Name="Investor" Relationship="Self.FK_Report_Investor" FromRole="Report" ToRole="Investor" />
+          <NavigationProperty Name="Payment" Relationship="Self.FK_Report_Payment" FromRole="Report" ToRole="Payment" />
+        </EntityType>
+        <Association Name="FK_Company_Enterpreneur">
+          <End Role="Enterpreneur" Type="Self.Enterpreneur" Multiplicity="1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Enterpreneur">
+              <PropertyRef Name="Enterpreneur_id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="Enterprenueur_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Report_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Company_ID" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="Company_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enterpreneur_Enterpreneur">
+          <End Role="Enterpreneur" Type="Self.Enterpreneur" Multiplicity="1" />
+          <End Role="Enterpreneur1" Type="Self.Enterpreneur" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Enterpreneur">
+              <PropertyRef Name="Enterpreneur_id" />
+            </Principal>
+            <Dependent Role="Enterpreneur1">
+              <PropertyRef Name="Enterpreneur_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Report_Enterpreneur">
+          <End Role="Enterpreneur" Type="Self.Enterpreneur" Multiplicity="1" />
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Enterpreneur">
+              <PropertyRef Name="Enterpreneur_id" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="Enterpreneur_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Payment">
+          <End Role="Investor" Type="Self.Investor" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investor">
+              <PropertyRef Name="Investor_ID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Investor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Report_Investor">
+          <End Role="Investor" Type="Self.Investor" Multiplicity="1" />
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investor">
+              <PropertyRef Name="Investor_ID" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="Investor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Report_Payment">
+          <End Role="Payment" Type="Self.Payment" Multiplicity="1" />
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment">
+              <PropertyRef Name="Payment_ID" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="Payment_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StartWithUsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Enterpreneurs" EntityType="Self.Enterpreneur" />
+          <EntitySet Name="Investors" EntityType="Self.Investor" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
+          <EntitySet Name="Reports" EntityType="Self.Report" />
+          <AssociationSet Name="FK_Company_Enterpreneur" Association="Self.FK_Company_Enterpreneur">
+            <End Role="Enterpreneur" EntitySet="Enterpreneurs" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Report_Company" Association="Self.FK_Report_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enterpreneur_Enterpreneur" Association="Self.FK_Enterpreneur_Enterpreneur">
+            <End Role="Enterpreneur" EntitySet="Enterpreneurs" />
+            <End Role="Enterpreneur1" EntitySet="Enterpreneurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Report_Enterpreneur" Association="Self.FK_Report_Enterpreneur">
+            <End Role="Enterpreneur" EntitySet="Enterpreneurs" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Payment" Association="Self.FK_Payment_Payment">
+            <End Role="Investor" EntitySet="Investors" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Report_Investor" Association="Self.FK_Report_Investor">
+            <End Role="Investor" EntitySet="Investors" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Report_Payment" Association="Self.FK_Report_Payment">
+            <End Role="Payment" EntitySet="Payments" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StartWithUsModelStoreContainer" CdmEntityContainer="StartWithUsEntities">
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="StartWithUsModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Company_Video" ColumnName="Company_Video" />
+                <ScalarProperty Name="Company_Graph" ColumnName="Company_Graph" />
+                <ScalarProperty Name="Enterprenueur_ID" ColumnName="Enterprenueur_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enterpreneurs">
+            <EntityTypeMapping TypeName="StartWithUsModel.Enterpreneur">
+              <MappingFragment StoreEntitySet="Enterpreneur">
+                <ScalarProperty Name="Enterpreneur_id" ColumnName="Enterpreneur_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Investors">
+            <EntityTypeMapping TypeName="StartWithUsModel.Investor">
+              <MappingFragment StoreEntitySet="Investor">
+                <ScalarProperty Name="Investor_ID" ColumnName="Investor_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="StartWithUsModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
+                <ScalarProperty Name="Investor_ID" ColumnName="Investor_ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="StartWithUsModel.Report">
+              <MappingFragment StoreEntitySet="Report">
+                <ScalarProperty Name="Report_ID" ColumnName="Report_ID" />
+                <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
+                <ScalarProperty Name="Enterpreneur_ID" ColumnName="Enterpreneur_ID" />
+                <ScalarProperty Name="Investor_ID" ColumnName="Investor_ID" />
+                <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

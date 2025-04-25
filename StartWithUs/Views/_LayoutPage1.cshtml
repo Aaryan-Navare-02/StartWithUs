@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+@using Microsoft.AspNetCore.Identity;
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>layout</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <script src="~/js/._main.js"></script>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="~/css/style-starter.css" rel="stylesheet" />
+    @*responsive*@
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- awesome fontfamily -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    @*<a href="~/fonts/fontawesome-webfont.eot"></a>
+        <a href="~/fonts/fontawesome-webfont.ttf"></a>
+        <a href="~/fonts/fontawesome-webfont.woff"></a>
+        <a href="~/fonts/fontawesome-webfont.woff2"></a>
+        <a href="~/fonts/FontAwesome.otf"></a>*@
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/lightbox-plus-jquery.min.js"></script>
+    <script src="~/js/owl.carousel.js"></script>
+    <script src="~/js/particles.min.js"></script>
+    <script src="~/js/script.js"></script>
+
+    <script src="~/js/._main.js"></script>
+    <script src="~/js/bootstrap.bundle.js"></script>
+    <script src="~/js/script.js"></script>
+    @* <a href="~/js/bootstrap.bundle.js.map"></a>*@
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    @* <a href="~/js/bootstrap.bundle.min.js.map"></a>*@
+    <script src="~/js/particles.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    @*<a href="~/js/bootstrap.js.map"></a>*@
+    <script src="~/js/lightbox-plus-jquery.min.js"></script>
+    <script src="~/js/owl.carousel.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/jquery-3.0.0.min.js"></script>
+    @*<script src="~/js/jquery.mCustomScrollbar.concat.min.js"></script>*@
+    @* <a href="~/js/bootstrap.min.js.map"></a>*@
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+</head>
+
+<body>
+
+    <header id="site-header" class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="~/Home/Index">
+                <span class="fa fa-bar-chart"></span> Start With Us
+            </a>
+            <button class="navbar-toggler bg-gradient" type="button" data-toggle="collapse"
+                    data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            @*<section class="navigation">*@
+                 <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav m-auto">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Services", "Services", "Home", new { @class = "nav-link" })</li>
+                    @*<li>@Html.ActionLink("TNC", "TNC", "Home", new { @class = "nav-link" })</li>*@
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Login", "LoginChoice", "Home", new { @class = "nav-link" })</li>
+                    <li>
+                        @if (Session["BID"] == null)
+                        {
+                            <li>@Html.ActionLink("Log Company", "BusinessLogin", "Home", new { @class = "nav-link" })</li>
+                        }
+                        @if (Session["BID"] != null)
+                        {
+                            <li>@Html.ActionLink("Log Company", "CompanyDetails", "Home", new { @class = "nav-link" })</li>
+                        }
+                    </li>
+                    </ul>
+                @if (Session["ID"] != null || Session["BID"] != null)
+                {
+                    <div class="right">
+                       @* <button onclick="~/Home/MyAccount" class="btn right" style="border:1px solid white;padding:11px 60px 11px 35px;margin:-6px 12px 11px 23px">*@
+
+                        <a href="~/Home/MyAccount" target="_blank" style="border: 1px solid white; padding: 11px 60px 11px 35px; margin: 13px 81px 11px -16px; text-decoration:none;border-radius:10px ">
+                            <i class="fa fa-user" aria-hidden="true" style="color:white; padding-left:0 10px 0 10px">
+                                @Session["Name"]
+                            </i>
+                        </a>    
+                        @*</button>*@
+                    </div>
+                }
+                    <div class="col-sm-4">
+                        <ul style="padding-left:10px">
+                            <li>
+                                <button class="openbtn" onclick="openNav()"><img src="~/images/icons8-menu-vertical-30.png"></button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="mySidepanel" class="sidepanel">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                        <ul>
+
+                            <li>
+                                @if (Session["ID"] != null || Session["BID"] != null)
+                                {
+                                    @Html.ActionLink("My Account", "MyAccount", "Home", new { @class = "nav-link" })
+                                }
+                            </li>
+
+                            <li>
+                                @if (Session["ID"] == null || Session["BID"] == null)
+                                {
+                                    @Html.ActionLink("Investor Login", "InvestorLogin", "Home", new { @class = "nav-link" })
+                                }
+                            </li>
+
+                            <li>
+                                @if (Session["BID"] == null || Session["ID"]==null)
+                                {
+                                    @Html.ActionLink("Business Login", "BusinessLogin", "Home", new { @class = "nav-link" })
+                                }
+                            </li>
+
+                            <li> @Html.ActionLink("Explore Companies", "ExploreCompanies", "Home", new { @class = "nav-link" }) </li>
+
+                            <li>
+                                @if (Session["ID"] != null || Session["BID"] !=null)
+                                {
+                                    @Html.ActionLink("Logout", "Logout", "Home", new { @class = "nav-link" })
+                                }
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    @*<a href="index.html">Home</a>*@
+                    @*<a class="active" href="about.html">My Account</a>
+            <a href="searvices.html">Business Login</a>
+            <a href="@Html.ActionLink("Investor Login", "InvestorLogin", "Home", new { @class = "nav-link" })"></a>
+            <a href="works.html">Explore Companies</a>*@
+                    @*<a href="contact.html">Contact</a>*@
+
+
+                </div>
+            @*</section>*@
+        </nav>
+    </header>
+            <!-- //site header -->
+
+
+            <div>
+                @RenderBody()
+            </div>
+
+            <!-- site footer -->
+            <footer id="site-footer">
+                <div class="top-footer">
+                    <div class="container my-md-5 my-4">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="footer-logo mb-3">
+                                    <a href="index.html">
+                                        <span class="fa fa-bar-chart"></span> Start With US
+                                    </a>
+                                </div>
+                                <div>
+                                    <p class="">
+                                        Start With Us allows you to invest in the new emerging startups & also to list your own business
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Quick Links -->
+                            <div class="col-lg-3 col-md-4 mt-lg-0 mt-5">
+                                <h4 class="footer-title">Quick Links</h4>
+                                <ul class="footer-list">
+                                    <li><a href="~/Home/About"> About company</a></li>
+                                    <li><a href="~/Home/Services"> Explore services</a></li>
+                                    <li><a href="~/Home/ExploreCompanies"> Partnered Companies</a></li>
+                                    <li><a href="~/Home/TNC">Terms and Conditions</a></li>
+                                </ul>
+                            </div>
+                            <!-- Newsletter -->
+                            <div class="col-lg-5 col-md-8 mt-lg-0 mt-5">
+                                <h4 class="footer-title">Have queries?</h4>
+                                <p class="mb-4">
+                                    By mailing us you can get an answer for your queries.
+                                </p>
+                                <form class="newsletter-form">
+                                    <input class="input-rounded" type="text" required="" placeholder="Query">
+                                    <button type="submit" title="Send Mail" class="btn btn-primary btn-style" name="Send Mail" value="Submit">
+                                        Send Mail
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 text-lg-left text-center mb-lg-0 mb-3">
+                                <p class="copyright">
+                                    © 2022 StartWithUS. All Rights Reserved.
+                                </p>
+                            </div>
+                            <div class="col-lg-4 align-center text-lg-right text-center">
+                                <a href="https://www.facebook.com/people/Start-with-us/100088494999733/" class="social-item"><span class="fa fa-facebook-f"></span></a>
+                                <a href="https://www.instagram.com/startwithus4851/" class="social-item"><span class="fa fa-instagram"></span></a>
+                                <a href="https://www.linkedin.com/in/aaryan-navare-881814258/" class="social-item"><span class="fa fa-linkedin"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- //site footer -->
+            <!-- javascript -->
+            <script src="~s/js/jquery-3.3.1.min.js"></script>
+
+            <!-- libhtbox -->
+            <script src="~s/js/lightbox-plus-jquery.min.js"></script>
+
+            <!-- particles -->
+            <script src='~s/js/particles.min.js'></script>
+            <script src="~s/js/script.js"></script>
+            <!-- //particles -->
+            <!-- owl carousel -->
+            <script src="~s/js/owl.carousel.js"></script>
+            <script>
+                $(document).ready(function () {
+                    var owl = $('.owl-carousel');
+                    owl.owlCarousel({
+                        margin: 10,
+                        nav: true,
+                        loop: false,
+                        responsive: {
+                            0: {
+                                items: 1
+                            },
+                            767: {
+                                items: 2
+                            },
+                            1000: {
+                                items: 3
+                            }
+                        }
+                    })
+                })
+            </script>
+
+            <!-- disable body scroll which navbar is in active -->
+            <script>
+                $(function () {
+                    $('.navbar-toggler').click(function () {
+                        $('body').toggleClass('noscroll');
+                    })
+                });
+            </script>
+            <!-- disable body scroll which navbar is in active -->
+            <!-- bootstrap -->
+            <script src="~s/js/bootstrap.min.js"></script>
+        </body>
+    </html>
+
